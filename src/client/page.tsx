@@ -10,7 +10,7 @@ import "@mantine/nprogress/styles.css";
 import "@mantine/spotlight/styles.css";
 import "@mantine/tiptap/styles.css";
 
-import { Navbar } from "@/components/navbar";
+import { Shell } from "@/components/shell";
 import { createTheme, MantineProvider } from "@mantine/core";
 
 const theme = createTheme({});
@@ -22,9 +22,7 @@ type ClientPageProps = {
 export function ClientPage({ children }: ClientPageProps) {
 	return (
 		<MantineProvider theme={theme}>
-			<Navbar />
-
-			{children}
+			<Shell>{children}</Shell>
 		</MantineProvider>
 	);
 }

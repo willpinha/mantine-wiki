@@ -1,9 +1,11 @@
 ---
-
 import { ClientPage } from "@/client/page";
 import Page from "@/components/page.astro";
+import { getCollection } from "astro:content";
+
+const x = await getCollection("wiki");
 ---
 
 <Page title="Opa opa">
-    <ClientPage client:only="react">A</ClientPage>
+	<ClientPage client:only="react">Abcdef</ClientPage>
 </Page>

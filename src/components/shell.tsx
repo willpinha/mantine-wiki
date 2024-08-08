@@ -20,7 +20,11 @@ import {
 	IconTags,
 } from "@tabler/icons-react";
 
-export function Navbar() {
+type ShellProps = {
+	children: React.ReactNode;
+};
+
+export function Shell({ children }: ShellProps) {
 	const [navbarOpened, { toggle: toggleNavbar }] = useDisclosure();
 	const [themesOpened, { toggle: toggleThemes, close: closeThemes }] =
 		useDisclosure();
@@ -120,6 +124,8 @@ export function Navbar() {
 			</AppShell.Header>
 
 			<AppShell.Navbar>Navbar</AppShell.Navbar>
+
+			<AppShell.Main>{children}</AppShell.Main>
 		</AppShell>
 	);
 }

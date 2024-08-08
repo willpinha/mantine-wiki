@@ -1,0 +1,20 @@
+---
+import { DetailsPage } from "@/client/details-page";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+	const wikiEntries = await getCollection("wiki");
+
+	return wikiEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const renderedMarkdown = await entry.render();
+---
+
+<DetailsPage slug={entry.slug} client:only="react">
+	<renderedMarkdown.Content />
+</DetailsPage>
