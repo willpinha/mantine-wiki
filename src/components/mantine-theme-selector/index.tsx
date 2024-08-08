@@ -14,7 +14,7 @@ import { themes } from "./themes";
 
 export function MantineThemeSelector() {
 	const [opened, { toggle, close }] = useDisclosure();
-	const { setThemeName } = useTheme();
+	const { themeName, setThemeName } = useTheme();
 
 	return (
 		<>
@@ -29,12 +29,14 @@ export function MantineThemeSelector() {
 			>
 				<Stack>
 					{Object.entries(themes).map(([name, theme]) => {
+						const selected = themeName === name;
+
 						const primary = theme.colors.primary[5];
 
 						return (
 							<Button
 								key={name}
-								variant="default"
+								variant={selected ? "light" : "default"}
 								justify="space-between"
 								fullWidth
 								leftSection={name}

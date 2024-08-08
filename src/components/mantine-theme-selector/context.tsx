@@ -5,11 +5,13 @@ import { themes } from "./themes";
 
 type MultipleThemeContextType = {
 	theme: MantineTheme;
+	themeName: string;
 	setThemeName: (themeName: string) => void;
 };
 
 const MultipleThemeContext = createContext<MultipleThemeContextType>({
 	theme: themes.light,
+	themeName: "light",
 	setThemeName: () => {},
 });
 
@@ -29,6 +31,7 @@ export function CustomMantineProvider({
 		<MultipleThemeContext.Provider
 			value={{
 				theme: themes[themeName],
+				themeName,
 				setThemeName,
 			}}
 		>
