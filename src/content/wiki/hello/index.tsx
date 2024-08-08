@@ -1,3 +1,12 @@
+import { Button } from "@mantine/core";
+import { useHover } from "@mantine/hooks";
+
 export default function MyComponent() {
-	return <h1>Opa</h1>;
+	const { hovered, ref } = useHover();
+
+	return (
+		<div ref={ref}>
+			<Button>{hovered ? "Hovered!" : "Hover me"}</Button>
+		</div>
+	);
 }

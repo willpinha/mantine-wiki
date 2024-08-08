@@ -1,4 +1,5 @@
 import { ExtractComponent } from "@/utils/slug";
+import { TypographyStylesProvider } from "@mantine/core";
 import type React from "react";
 import { ClientPage } from "./page";
 
@@ -12,7 +13,7 @@ export function DetailsPage({ slug, children }: DetailsPageProps) {
 		<ClientPage>
 			<ExtractComponent slug={slug} />
 
-			{children}
+			<TypographyStylesProvider>{children}</TypographyStylesProvider>
 		</ClientPage>
 	);
 }
