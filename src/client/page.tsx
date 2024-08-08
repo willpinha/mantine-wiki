@@ -10,10 +10,8 @@ import "@mantine/nprogress/styles.css";
 import "@mantine/spotlight/styles.css";
 import "@mantine/tiptap/styles.css";
 
+import { CustomMantineProvider } from "@/components/mantine-theme-selector/context";
 import { Shell } from "@/custom/shell";
-import { createTheme, MantineProvider } from "@mantine/core";
-
-const theme = createTheme({});
 
 type ClientPageProps = {
 	children: React.ReactNode;
@@ -21,8 +19,8 @@ type ClientPageProps = {
 
 export function ClientPage({ children }: ClientPageProps) {
 	return (
-		<MantineProvider theme={theme}>
+		<CustomMantineProvider>
 			<Shell>{children}</Shell>
-		</MantineProvider>
+		</CustomMantineProvider>
 	);
 }

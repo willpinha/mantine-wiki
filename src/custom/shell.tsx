@@ -1,3 +1,4 @@
+import { MantineThemeSelector } from "@/components/mantine-theme-selector";
 import {
 	ActionIcon,
 	AppShell,
@@ -15,7 +16,6 @@ import {
 	IconBrandGithub,
 	IconBrandMantine,
 	IconCoffee,
-	IconPalette,
 	IconSearch,
 	IconTags,
 } from "@tabler/icons-react";
@@ -99,11 +99,7 @@ export function Shell({ children }: ShellProps) {
 								</ActionIcon>
 							</Tooltip>
 
-							<Tooltip label="Themes">
-								<ActionIcon onClick={toggleThemes}>
-									<IconPalette />
-								</ActionIcon>
-							</Tooltip>
+							<MantineThemeSelector />
 
 							<Divider orientation="vertical" />
 
