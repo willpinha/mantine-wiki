@@ -6,9 +6,11 @@ import {
 	Drawer,
 	Group,
 	Image,
+	rem,
 	Tooltip,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { Spotlight, spotlight } from "@mantine/spotlight";
 import {
 	IconBrandGithub,
 	IconBrandMantine,
@@ -45,6 +47,21 @@ export function Navbar() {
 				{/* Drawer content */}
 			</Drawer>
 
+			<Spotlight
+				actions={[]}
+				nothingFound="Nothing found..."
+				highlightQuery
+				searchProps={{
+					leftSection: (
+						<IconSearch
+							style={{ width: rem(20), height: rem(20) }}
+							stroke={1.5}
+						/>
+					),
+					placeholder: "Search components by name...",
+				}}
+			/>
+
 			<AppShell.Header>
 				<Group h="100%" px="md">
 					<Burger
@@ -73,7 +90,7 @@ export function Navbar() {
 							</Tooltip>
 
 							<Tooltip label="Search components">
-								<ActionIcon>
+								<ActionIcon onClick={spotlight.open}>
 									<IconSearch />
 								</ActionIcon>
 							</Tooltip>
