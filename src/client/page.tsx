@@ -10,7 +10,7 @@ import "@mantine/nprogress/styles.css";
 import "@mantine/spotlight/styles.css";
 import "@mantine/tiptap/styles.css";
 
-import { Shell } from "@/components/shell";
+import { Shell } from "@/custom/shell";
 import { createTheme, MantineProvider } from "@mantine/core";
 
 const theme = createTheme({});

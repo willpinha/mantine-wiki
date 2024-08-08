@@ -1,5 +1,6 @@
 ---
 import { DetailsPage } from "@/client/details-page";
+import Page from "@/custom/page.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -12,9 +13,13 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const renderedMarkdown = await entry.render();
 ---
 
-<DetailsPage slug={entry.slug} client:only="react">
-	<renderedMarkdown.Content />
-</DetailsPage>
+<Page title={entry.data.title}>
+	<DetailsPage
+		slug={entry.slug}
+		body={entry.body}
+		frontMatter={entry.data}
+		client:only="react"
+	/>
+</Page>
