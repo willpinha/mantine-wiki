@@ -1,0 +1,9 @@
+---
+
+import { ClientPage } from "@/client/page";
+import Page from "@/components/page.astro";
+---
+
+<Page title="Opa opa">
+    <ClientPage client:only="react">A</ClientPage>
+</Page>
