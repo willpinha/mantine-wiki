@@ -33,7 +33,10 @@ interface CustomTheme extends MantineTheme {
 }
 
 function createCustomTheme(config: CustomThemeConfig): CustomTheme {
-	return mergeMantineTheme(DEFAULT_THEME, createTheme(config)) as CustomTheme;
+	return mergeMantineTheme(
+		DEFAULT_THEME,
+		createTheme({ ...config, primaryColor: "primary" }),
+	) as CustomTheme;
 }
 
 export const themes: Record<string, CustomTheme> = {
