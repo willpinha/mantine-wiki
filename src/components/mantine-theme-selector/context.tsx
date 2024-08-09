@@ -2,6 +2,7 @@ import { MantineProvider, type MantineTheme } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import { createContext, useContext } from "react";
 import { themes } from "./themes";
+import { resolver } from "./themes-utils";
 
 type MultipleThemeContextType = {
 	theme: MantineTheme;
@@ -10,8 +11,8 @@ type MultipleThemeContextType = {
 };
 
 const MultipleThemeContext = createContext<MultipleThemeContextType>({
-	theme: themes.light,
-	themeName: "light",
+	theme: themes.dracula,
+	themeName: "dracula",
 	setThemeName: () => {},
 });
 
@@ -24,7 +25,7 @@ export function CustomMantineProvider({
 }: CustomMantineProviderProps) {
 	const [themeName, setThemeName] = useLocalStorage({
 		key: "theme",
-		defaultValue: "light",
+		defaultValue: "dracula",
 	});
 
 	return (
@@ -35,7 +36,11 @@ export function CustomMantineProvider({
 				setThemeName,
 			}}
 		>
-			<MantineProvider theme={themes[themeName]}>
+			<MantineProvider
+				theme={themes[themeName]}
+				forceColorScheme="light"
+				cssVariablesResolver={resolver}
+			>
 				{children}
 			</MantineProvider>
 		</MultipleThemeContext.Provider>

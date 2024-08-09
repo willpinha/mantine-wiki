@@ -1,60 +1,35 @@
-import {
-	createTheme,
-	DEFAULT_THEME,
-	mergeMantineTheme,
-	type MantineTheme,
-	type MantineThemeColors,
-	type MantineThemeOverride,
-} from "@mantine/core";
-
-type CustomColors = {
-	primary: [
-		string,
-		string,
-		string,
-		string,
-		string,
-		string,
-		string,
-		string,
-		string,
-		string,
-	];
-};
-
-type CustomThemeConfig = MantineThemeOverride & {
-	colors: CustomColors;
-};
-
-interface CustomTheme extends MantineTheme {
-	colors: MantineThemeColors & {
-		primary: string;
-	};
-}
-
-function createCustomTheme(config: CustomThemeConfig): CustomTheme {
-	return mergeMantineTheme(
-		DEFAULT_THEME,
-		createTheme({ ...config, primaryColor: "primary" }),
-	) as CustomTheme;
-}
+import { createCustomTheme, type CustomTheme } from "./themes-utils";
 
 export const themes: Record<string, CustomTheme> = {
-	light: createCustomTheme({
+	dracula: createCustomTheme({
 		colors: {
 			primary: [
-				"#ffe9f6",
-				"#ffd1e6",
-				"#faa1c9",
-				"#f66eab",
-				"#f24391",
-				"#f02881",
-				"#f01879",
-				"#d60867",
-				"#c0005c",
-				"#a9004f",
+				"#f5ebff",
+				"#e5d2ff",
+				"#c5a1fa",
+				"#a66df6",
+				"#8a41f2",
+				"#7926f1",
+				"#7117f1",
+				"#600cd7",
+				"#5508c1",
+				"#4801a9",
+			],
+			dark: [
+				"hsla(230, 25%, 75%, 1)",
+				"hsla(230, 25%, 68%, 1)",
+				"hsla(230, 25%, 47%, 1)",
+				"hsla(230, 25%, 37%, 1)",
+				"hsla(230, 25%, 22%, 1)",
+				"hsla(230, 25%, 20%, 1)",
+				"hsla(230, 25%, 15%, 1)",
+				"hsla(230, 25%, 11%, 1)",
+				"hsla(230, 25%, 9%, 1)",
+				"hsla(230, 25%, 5%, 1)",
 			],
 		},
+		black: "#282a36",
+		white: "#f8f8f2",
 	}),
 	dark: createCustomTheme({
 		colors: {
